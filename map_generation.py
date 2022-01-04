@@ -5,6 +5,7 @@ from tree import Tree
 from mushrooms import TwoMushrooms, OneMushroom
 from random import randint
 from mana import Mana
+from rubin import Rubin
 
 def load_level(file):
     file = open(file, mode="rt", encoding="UTF-8")
@@ -66,6 +67,12 @@ def gen_mana():
         all_sprites.add(mana)
 
 
+def gen_rubins():
+    for i in range(3):
+        coords = (randint(13 * 32, LEVEL_WIGHT - 13 * 32), randint(13 * 32, LEVEL_WIGHT - 13 * 32))
+        rubin = Rubin((coords[0], coords[1]))
+        rubins_group.add(rubin)
+        all_sprites.add(rubin)
 
 # def add_forest():
 #     for i in range(0, len(level), 2):
