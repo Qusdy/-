@@ -6,6 +6,7 @@ from groups import bullets, enemy_group, forest_group, all_sprites, articles_of_
 from particles_of_magic import *
 
 
+# Код Димы
 def rotate(self):
     mouse_x, mouse_y = pygame.mouse.get_pos()
     rel_x, rel_y = mouse_x - self.x, mouse_y - self.y
@@ -100,6 +101,7 @@ class Ice_dart(pygame.sprite.Sprite):
             self.kill()
 
 
+# Код Алана
 class SnowBall(pygame.sprite.Sprite):
     def __init__(self, x, y, dx, dy):
         pygame.sprite.Sprite.__init__(self)

@@ -49,6 +49,7 @@ class Enemy(AnimatedSprite):
     def update(self, **kwargs):
         if self.distance_to_wizard() >= self.shoot_distance:
             self.running = True
+            # Код Димы
             self.death_time += 1
             self.sideway = False
         else:
@@ -68,20 +69,24 @@ class Enemy(AnimatedSprite):
         if self.sideway and not self.running:
             self.sideways_movement()
             self.running_animation()
+        # Код Мишы
         if self.time >= 1500 and not self.running:
             self.time = 0
             self.shoot()
+        # Код Димы
         if self.enemy_have_damage:
             self.damage_animation()
             self.damage_time += 1
             if self.damage_time >= 15:
                 self.enemy_have_damage = False
                 self.damage_time = 0
+        # Код Мишы
         elif self.running:
             self.move()
             self.running_animation()
         else:
             self.stand_animation()
+        # Код Димы
         if self.health <= 0:
             self.dead_animation()
         if self.frieze and self.frieze_time >= 80:
@@ -100,12 +105,14 @@ class Enemy(AnimatedSprite):
             text = font.render("Терористы уходят! за ними", True, (255, 0, 0))
             SCREEN.blit(text, (wizard.rect.centerx, wizard.rect.y - 20))
 
+    # Код Мишы
     def in_sprite(self, pos):
         if self.rect.x <= pos[0] <= self.rect.x + self.rect.width:
             if self.rect.y <= pos[1] <= self.rect.y + self.rect.height:
                 return True
         return False
 
+    # Код Димы
     def friezing(self):
         self.frieze_time += 1
         if self.frieze_time % 2 == 0:
@@ -128,6 +135,7 @@ class Enemy(AnimatedSprite):
     def dead_animation(self):
         self.kill()
 
+    # Код Мишы
     def distance_to_wizard(self):
         return ((self.rect.centerx - wizard.rect.centerx) ** 2 + (self.rect.centery - wizard.rect.centery) ** 2) ** 0.5
 
@@ -145,6 +153,7 @@ class Enemy(AnimatedSprite):
         self.cur_frame = (self.cur_frame + 1) % len(self.run)
         self.rotate(self.run)
 
+    # Код Димы
     def damage_animation(self):
         self.cur_frame = (self.cur_frame + 1) % len(self.damage)
         self.rotate(self.damage)
@@ -165,6 +174,7 @@ class Enemy(AnimatedSprite):
         return pygame.math.Vector2(wizard.rect.centerx - self.rect.centerx,
                                    wizard.rect.centery - self.rect.centery).normalize()
 
+    # Код Димы
     def have_damage(self, damage):
         self.enemy_have_damage = True
         self.enemy_damage = damage
@@ -183,6 +193,7 @@ class Enemy(AnimatedSprite):
         self.rect.y += self.vector_move[1] * self.speed
 
 
+# Код Димы
 class Enemy_bomber(Enemy):
     def __init__(self, sheet, colums, rows):
         sheet = pygame.transform.scale(sheet, (sheet.get_width() * 3, sheet.get_height() * 3))

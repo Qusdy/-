@@ -50,6 +50,7 @@ WINTER = 2
 AUTUMN = 3
 
 
+# Функции Димы
 def Boom_Funk(obj):
     particle = Particles_of_magic(obj, load_image('Boom.png'), 4, 2, obj.rect.centerx, obj.rect.centery, 3, (80, 80))
     articles_of_magic.add(particle)
@@ -61,6 +62,7 @@ def rotate_Funk(self):
     angle = (180 / math.pi) * -math.atan2(rel_y, rel_x)
     self.image = pygame.transform.rotate(self.image, int(angle))
     self.rect = self.image.get_rect(center=self.position)
+# Функции димы усё
 
 
 FONT_SIZE_PARAM = 30
