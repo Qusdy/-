@@ -78,6 +78,7 @@ SOUND_FX = [SOUND_BTN_CLICKED, SOUND_SHOOT, SOUND_BOOM, SOUND_CHANGE_WEAPON]
 for effect in SOUND_FX:
     effect.set_volume(1)
 
+# Код Димы
 FIREBALL = {
     "class": None,
     "name": "Огненный шар ",
@@ -92,6 +93,7 @@ ICE = {
     "speed": 2000 / FPS
 }
 
+# Код Алана
 SNOWBALL = {
     "class": None,
     "name": "Снежок",
